@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 162336945628341908, guid: e0357ad055ff6644ab9d4c9621a86b4f, type: 3}
       propertyPath: m_Name
-      value: (0, 0)
+      value: Tile RoadCorner270
       objectReference: {fileID: 0}
     - target: {fileID: 1151737589091586253, guid: e0357ad055ff6644ab9d4c9621a86b4f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -71,6 +71,14 @@ PrefabInstance:
     - target: {fileID: 3945544086360622159, guid: e0357ad055ff6644ab9d4c9621a86b4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622081901791102239, guid: e0357ad055ff6644ab9d4c9621a86b4f, type: 3}
+      propertyPath: m_text
+      value: 0,0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622081901791102239, guid: e0357ad055ff6644ab9d4c9621a86b4f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8622081901791102239, guid: e0357ad055ff6644ab9d4c9621a86b4f, type: 3}
       propertyPath: m_fontColor.b

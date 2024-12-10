@@ -10,15 +10,16 @@ public class Cordinatelabeler : MonoBehaviour
 {
     [SerializeField] Color DefaultColor = Color.white;
     [SerializeField] Color BlockedColor = Color.gray;
+    [SerializeField] Color ExploredColor = Color.yellow;
+    [SerializeField] Color PathColor = new Color (1f,0.5f,0f);
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
-    Waypoint waypoint;
-
+    GridManager gridManager;
     void Awake() 
     {
         label = GetComponent<TextMeshPro>();
         label.enabled = false;
-        waypoint =GetComponentInParent<Waypoint>();
+        gridManager = FindObjectOfType<GridManager>();
         
         DisplayCoordinates();
         
@@ -40,13 +41,28 @@ public class Cordinatelabeler : MonoBehaviour
 
     void SetLabelColor()
     {
-        if (waypoint.isPlaceable)
-        {
-            label.color = DefaultColor;
-        }
-        else
+        if(gridManager == null){return;}
+
+        Node node = gridManager.GetNode(coordinates);
+
+        if(node == null){return;}
+
+        if(!node.isWalkable)
         {
             label.color = BlockedColor;
+        }
+          else if (node.isPath)
+        {
+            label.color = PathColor;
+        }
+
+        else if (node.isExplored)
+        {
+            label.color = ExploredColor;
+        }
+        else 
+        {
+            label.color = DefaultColor;
         }
     }
 
@@ -61,9 +77,9 @@ public class Cordinatelabeler : MonoBehaviour
 
     void DisplayCoordinates()
     {
-        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
-
-        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
+        if(gridManager == null ){return;}
+        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / gridManager.unityGridSize);
+        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / gridManager.unityGridSize);
 
         label.text = coordinates.x + "," + coordinates.y;
     }

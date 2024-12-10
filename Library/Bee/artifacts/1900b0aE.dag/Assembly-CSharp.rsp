@@ -359,8 +359,9 @@
 "Assets/Enemy/ObjectPool.cs"
 "Assets/Pathfind/GridManager.cs"
 "Assets/Pathfind/Node.cs"
+"Assets/Pathfind/PathFinder.cs"
 "Assets/Tile/Cordinatelabeler.cs"
-"Assets/Tile/Waypoint.cs"
+"Assets/Tile/Tile.cs"
 "Assets/Tower/TargetLocator.cs"
 "Assets/Tower/Tower.cs"
 -langversion:9.0
